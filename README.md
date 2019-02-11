@@ -26,6 +26,7 @@ on terminal
         
         bundle console
 then run the following command with mobile_number
+
         D2W::PhoneToWord.new.digit2word("phone_no")
 
 ## Development

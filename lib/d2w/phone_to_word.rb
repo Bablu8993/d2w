@@ -76,12 +76,19 @@ module D2W
           length_10 << word  if phone_no[0..9] == D2W::WordInNumber.new.word_in_number?(phone_no, word, dw_map)
         end 
       end
+      print"word of length 3\n"
       p length_3
+      print"word of length 7\n"
       p length_7
+      print"word of length 4\n"
       p length_4
+      print"word of length 6\n"
       p length_6
+      print"word of length 5\n"
       p length_5
+      print"word of length 5 which will be second in sub array group\n"
       p length_05
+      print"word of length 10\n"
       p length_10
     end
   end          

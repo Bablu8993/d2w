@@ -1,4 +1,5 @@
 module D2W
+  # include 
   class PhoneToWord
     def digit2word(phone_no)
       dw_map =  {  
@@ -37,86 +38,51 @@ module D2W
           possible_words << word
         end
       end
-
       exact_words = []
       # filer exact words for phone number from possible words
       possible_words.each do |word|
-        number = []
-        word.split("").each do |char|
-          dw_map.each do |k, v|
-            if v.include?(char)
-              number << k
-              break
-            end
-          end
-        end
-
-        if phone_no.include?number.join("")
-          exact_words << word 
-        end
+        exact_words << word if D2W::WordInNumber.new.word_in_number?(phone_no, word, dw_map)
       end
-
       possible_pair = []
-      length_3 = [];length_4 = [];length_5 = [];length_6 = [];length_7 = [];length_10 = []
+      length_3 = [];length_4 = [];length_5 = [];length_6 = [];length_7 = [];length_10 = []; length_05 = []
+
+      # collecting all word of lenght 3,4,5,6,7,10
       exact_words.each do |word|
-        length_3 << word if word.length == 3
-        length_5 << word if word.length == 5
-        length_4 << word if word.length == 4
-        length_10 << word if word.length == 10
-        length_7 << word if word.length == 7
-        length_6 << word if word.length == 6
+        if word.length == 3
+          length_3 << word  if phone_no[0..2] == D2W::WordInNumber.new.word_in_number?(phone_no, word, dw_map)
+        end
+
+        if word.length == 4
+          length_4 << word  if phone_no[0..3] == D2W::WordInNumber.new.word_in_number?(phone_no, word, dw_map)
+        end  
+
+        if word.length == 5
+          length_5 << word  if phone_no[0..4] == D2W::WordInNumber.new.word_in_number?(phone_no, word, dw_map)
+        end
+
+        if word.length == 5
+          length_05 << word  if phone_no[5..9] == D2W::WordInNumber.new.word_in_number?(phone_no, word, dw_map)
+        end
+
+        if word.length == 6
+          length_6 << word  if phone_no[4..9] == D2W::WordInNumber.new.word_in_number?(phone_no, word, dw_map)
+        end
+
+        if word.length == 7
+          length_7 << word  if phone_no[3..9] == D2W::WordInNumber.new.word_in_number?(phone_no, word, dw_map)
+        end
+
+        if word.length == 10
+          length_10 << word  if phone_no[0..9] == D2W::WordInNumber.new.word_in_number?(phone_no, word, dw_map)
+        end 
       end
-      binding.pry
-      
-      final_words = []
-      !length_3.empty? && length_3.each do |word|
-        
-      end
-
-
-
-      #   possible_words << word if [3,4,5,6,7,10].include?(word.length)
-      # end
-
-
-      binding.pry
-
-
-
-
-
-
-
-
-      # total_number = keys.length - 1 # total numbers
-      #Loo through all letters and get matching records with dictionary
-      # for i in (2..8)
-      #   binding.pry
-      #   first_array = keys[0..i]
-      #   second_array = keys[i + 1..8]
-      #   next if first_array.length < 3 || second_array.length < 3
-      #   first_combination = first_array.shift.product(*first_array).map(&:join) # Get product of arrays
-      #   next if first_combination.nil?
-      #   second_combination = second_array.shift.product(*second_array).map(&:join)
-      #   next if second_combination.nil?
-      #   results[i] = [(first_combination & dictionary), (second_combination & dictionary)] # get common values from arrays
-      # end
-      # #arrange words like we need as a output
-      # final_words = []
-      # results.each do |key, combinataions|
-      # binding.pry
-      #   next if combinataions.first.nil? || combinataions.last.nil?
-      #   combinataions.first.product(combinataions.last).each do |combo_words|
-      #     final_words << combo_words
-      #   end
-      # end
-      # # for all numbers
-      # final_words << (keys.shift.product(*keys).map(&:join) & dictionary).join(", ") # matche with all character
-      # final_words
+      p length_3
+      p length_7
+      p length_4
+      p length_6
+      p length_5
+      p length_05
+      p length_10
     end
-
-
-  end
-# final_words = NumberToWord.new().letter_combinations("6686787825")
-# print final_words          
+  end          
 end  

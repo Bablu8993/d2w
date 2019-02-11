@@ -1,5 +1,7 @@
 require "d2w/version"
 require_relative "d2w/phone_to_word"
+require_relative "d2w/word_in_number"
+
 module D2W
   # class Error < StandardError
   # end

@@ -1,6 +1,6 @@
 module D2W
-  # include 
-  class PhoneToWord
+  # require 'thor'
+  class PhoneToWord 
     def digit2word(phone_no)
       dw_map =  {  
                   "2" => ["a", "b", "c"],
@@ -12,7 +12,6 @@ module D2W
                   "8" => ["t", "u", "v"],
                   "9" => ["w", "x", "y", "z"]
                 }
-      # 6686787825
       dictionary = []
 
       #this is path of given dictionary in my local machine
@@ -43,53 +42,7 @@ module D2W
       possible_words.each do |word|
         exact_words << word if D2W::WordInNumber.new.word_in_number?(phone_no, word, dw_map)
       end
-      possible_pair = []
-      length_3 = [];length_4 = [];length_5 = [];length_6 = [];length_7 = [];length_10 = []; length_05 = []
-
-      # collecting all word of lenght 3,4,5,6,7,10
-      exact_words.each do |word|
-        if word.length == 3
-          length_3 << word  if phone_no[0..2] == D2W::WordInNumber.new.word_in_number?(phone_no, word, dw_map)
-        end
-
-        if word.length == 4
-          length_4 << word  if phone_no[0..3] == D2W::WordInNumber.new.word_in_number?(phone_no, word, dw_map)
-        end  
-
-        if word.length == 5
-          length_5 << word  if phone_no[0..4] == D2W::WordInNumber.new.word_in_number?(phone_no, word, dw_map)
-        end
-
-        if word.length == 5
-          length_05 << word  if phone_no[5..9] == D2W::WordInNumber.new.word_in_number?(phone_no, word, dw_map)
-        end
-
-        if word.length == 6
-          length_6 << word  if phone_no[4..9] == D2W::WordInNumber.new.word_in_number?(phone_no, word, dw_map)
-        end
-
-        if word.length == 7
-          length_7 << word  if phone_no[3..9] == D2W::WordInNumber.new.word_in_number?(phone_no, word, dw_map)
-        end
-
-        if word.length == 10
-          length_10 << word  if phone_no[0..9] == D2W::WordInNumber.new.word_in_number?(phone_no, word, dw_map)
-        end 
-      end
-      print"word of length 3\n"
-      p length_3
-      print"word of length 7\n"
-      p length_7
-      print"word of length 4\n"
-      p length_4
-      print"word of length 6\n"
-      p length_6
-      print"word of length 5\n"
-      p length_5
-      print"word of length 5 which will be second in sub array group\n"
-      p length_05
-      print"word of length 10\n"
-      p length_10
+      p possible_pair = D2W::FilterWordLengthWise.new.filter_word_length_wise(exact_words,phone_no, dw_map)
     end
   end          
 end  

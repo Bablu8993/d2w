@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby -U
+
+require 'd2w'
+
+D2W::Cli.start( ARGV )

@@ -24,7 +24,7 @@ Or install it yourself as:
 clone the gem into your local machin and go to that folder
 on terminal run the following command with mobile_number
 
-        path_of_dictionar = "/Users/babaloo/Downloads/dictionary.txt"
+        path_of_dictionar = "/Users/babaloo/Downloads/dictionary.txt" (Example path)
         
         d2w translate 2282668687 path_of_dictionar
         

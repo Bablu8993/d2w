@@ -2,6 +2,10 @@ module D2W
   # require 'thor'
   class PhoneToWord 
     def digit2word(phone_no)
+       if phone_no.nil? || phone_no.length != 10 || phone_no.split('').select{|a|(a.to_i == 0 || a.to_i == 1)}.length > 0
+        p "something wrong with phone number"
+        return
+       end
       dw_map =  {  
                   "2" => ["a", "b", "c"],
                   "3" => ["d", "e", "f"],

@@ -3,8 +3,7 @@ module D2W
   class PhoneToWord 
     def digit2word(phone_no)
        if phone_no.nil? || phone_no.length != 10 || phone_no.split('').select{|a|(a.to_i == 0 || a.to_i == 1)}.length > 0
-        p "something wrong with phone number"
-        return
+        return []
        end
       dw_map =  {  
                   "2" => ["a", "b", "c"],
@@ -46,7 +45,7 @@ module D2W
       possible_words.each do |word|
         exact_words << word if D2W::WordInNumber.new.word_in_number?(phone_no, word, dw_map)
       end
-      p possible_pair = D2W::FilterWordLengthWise.new.filter_word_length_wise(exact_words,phone_no, dw_map)
+      p possible_pair = D2W::FilterWordLengthWise.new.filter_word_length_wise(exact_words, phone_no, dw_map)
     end
   end          
 end  

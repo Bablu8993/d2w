@@ -1,7 +1,7 @@
 module D2W
   # require 'thor'
   class PhoneToWord 
-    def digit2word(phone_no)
+    def digit2word(phone_no, path_of_dictionary)
        if phone_no.nil? || phone_no.length != 10 || phone_no.split('').select{|a|(a.to_i == 0 || a.to_i == 1)}.length > 0
         return []
        end
@@ -18,7 +18,7 @@ module D2W
       dictionary = []
 
       #this is path of given dictionary in my local machine
-      file_path = "/Users/babaloo/Downloads/dictionary.txt"
+      file_path = path_of_dictionary
       
       #fetching dictionay in my local dictionary array with leght 3,5,7,4,6,10
 

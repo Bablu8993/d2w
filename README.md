@@ -42,6 +42,15 @@ Output for 6686787825
  Got Details
     
     #<Benchmark::Tms:0x00007f8051c38538 @label="", @real=1.1990008849970764, @cstime=0.0, @cutime=0.0, @stime=0.010602, @utime=1.172868, @total=1.18347>
+    
+ Runnig Benchmark for phone_no 2282668687   
+ 
+    Benchmark.measure{D2W::PhoneToWord.new.digit2word("6686787825")}
+    
+ Got Details
+ 
+       #<Benchmark::Tms:0x00007f8051c21388 @label="", @real=1.2247622689974378, @cstime=0.0, @cutime=0.0,   @stime=0.02586499999999997, @utime=1.18574, @total=1.211605>
+       
 ## Development
 
 

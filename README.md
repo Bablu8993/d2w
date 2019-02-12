@@ -35,7 +35,13 @@ Output for 6686787825
 
     [["mot", "opt", "puck"], ["mot", "opt", "ruck"], ["mot", "opt", "suck"], ["mot", "ort", "puck"], ["mot", "ort", "ruck"], ["mot", "ort", "suck"], ["not", "opt", "puck"], ["not", "opt", "ruck"], ["not", "opt", "suck"], ["not", "ort", "puck"], ["not", "ort", "ruck"], ["not", "ort", "suck"], ["oot", "opt", "puck"], ["oot", "opt", "ruck"], ["oot", "opt", "suck"], ["oot", "ort", "puck"], ["oot", "ort", "ruck"], ["oot", "ort", "suck"], ["noun", "struck"], ["onto", "struck"], ["motor", "truck"], ["motor", "usual"], ["nouns", "truck"], ["nouns", "usual"], ["motortruck"]]
 
-
+## Benchmark
+   Runnig Benchmark for phone_no 2282668687
+   
+    Benchmark.measure{D2W::PhoneToWord.new.digit2word("2282668687")}
+ Got Details
+    
+    #<Benchmark::Tms:0x00007f8051c38538 @label="", @real=1.1990008849970764, @cstime=0.0, @cutime=0.0, @stime=0.010602, @utime=1.172868, @total=1.18347>
 ## Development
 
 

@@ -21,8 +21,13 @@ Or install it yourself as:
     $ gem install d2w
 
 ## Usage
+clone the gem into your local machin and go to that folder
+on terminal 
+        
+        bundle console
+then run the following command with mobile_number
 
-TODO: Write usage instructions here
+        D2W::PhoneToWord.new.digit2word("phone_no")
 
 ## Development
 

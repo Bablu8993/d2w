@@ -22,12 +22,14 @@ Or install it yourself as:
 
 ## Usage
 clone the gem into your local machin and go to that folder
-on terminal 
-        
-        bundle console
-then run the following command with mobile_number
+on terminal run the following command with mobile_number
 
-        D2W::PhoneToWord.new.digit2word("phone_no")
+        d2w translate 2282668687
+        
+        2282668687 is phone no. translate into words
+ Output
+        
+        [["act", "boo", "tots"], ["act", "boo", "tour"], ["act", "con", "tots"], ["act", "con", "tour"], ["act", "coo", "tots"], ["act", "coo", "tour"], ["bat", "boo", "tots"], ["bat", "boo", "tour"], ["bat", "con", "tots"], ["bat", "con", "tour"], ["bat", "coo", "tots"], ["bat", "coo", "tour"], ["cat", "boo", "tots"], ["cat", "boo", "tour"], ["cat", "con", "tots"], ["cat", "con", "tour"], ["cat", "coo", "tots"], ["cat", "coo", "tour"], ["act", "amounts"], ["act", "contour"], ["bat", "amounts"], ["bat", "contour"], ["cat", "amounts"], ["cat", "contour"], ["acta", "mounts"], ["catamounts"]]
 
 ## Development
 

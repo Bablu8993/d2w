@@ -18,15 +18,18 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install d2w
+    $ gem install d2w 
 
 ## Usage
 clone the gem into your local machin and go to that folder
 on terminal run the following command with mobile_number
 
-        d2w translate 2282668687
+        path_of_dictionar = "/Users/babaloo/Downloads/dictionary.txt" (Example path)
         
-        2282668687 is phone no. translate into words
+        d2w translate 2282668687 path_of_dictionar
+        
+        2282668687 is phone no.
+        
  Output for 2282668687
         
         [["act", "boo", "tots"], ["act", "boo", "tour"], ["act", "con", "tots"], ["act", "con", "tour"], ["act", "coo", "tots"], ["act", "coo", "tour"], ["bat", "boo", "tots"], ["bat", "boo", "tour"], ["bat", "con", "tots"], ["bat", "con", "tour"], ["bat", "coo", "tots"], ["bat", "coo", "tour"], ["cat", "boo", "tots"], ["cat", "boo", "tour"], ["cat", "con", "tots"], ["cat", "con", "tour"], ["cat", "coo", "tots"], ["cat", "coo", "tour"], ["act", "amounts"], ["act", "contour"], ["bat", "amounts"], ["bat", "contour"], ["cat", "amounts"], ["cat", "contour"], ["acta", "mounts"], ["catamounts"]]
@@ -38,18 +41,25 @@ Output for 6686787825
 ## Benchmark
    Runnig Benchmark for phone_no 2282668687
    
-    Benchmark.measure{D2W::PhoneToWord.new.digit2word("2282668687")}
+    Benchmark.measure{D2W::PhoneToWord.new.digit2word("2282668687","/Users/babaloo/Downloads/dictionary.txt")}
  Got Details
     
     #<Benchmark::Tms:0x00007f8051c38538 @label="", @real=1.1990008849970764, @cstime=0.0, @cutime=0.0, @stime=0.010602, @utime=1.172868, @total=1.18347>
     
  Runnig Benchmark for phone_no 2282668687   
  
-    Benchmark.measure{D2W::PhoneToWord.new.digit2word("6686787825")}
+    Benchmark.measure{D2W::PhoneToWord.new.digit2word("6686787825","/Users/babaloo/Downloads/dictionary.txt")}
     
  Got Details
  
        #<Benchmark::Tms:0x00007f8051c21388 @label="", @real=1.2247622689974378, @cstime=0.0, @cutime=0.0,   @stime=0.02586499999999997, @utime=1.18574, @total=1.211605>
+       
+## Test cases
+on terminal run the following command
+
+        rspec spec/
+        
+        
        
 ## Development
 

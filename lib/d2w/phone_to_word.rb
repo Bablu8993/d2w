@@ -1,7 +1,10 @@
 module D2W
   # require 'thor'
   class PhoneToWord 
-    def digit2word(phone_no, path_of_dictionary)
+    def digit2word(phone_no)
+
+       # path_of_dictionary = "/Users/babaloo/Downloads/dictionary.txt"
+       
        if phone_no.nil? || phone_no.length != 10 || phone_no.split('').select{|a|(a.to_i == 0 || a.to_i == 1)}.length > 0
         return []
        end
@@ -15,18 +18,16 @@ module D2W
                   "8" => ["t", "u", "v"],
                   "9" => ["w", "x", "y", "z"]
                 }
-      dictionary = []
-
+    
       #this is path of given dictionary in my local machine
-      file_path = path_of_dictionary
+      dict = D2W::Dictionary.new.dictionary
       
       #fetching dictionay in my local dictionary array with leght 3,5,7,4,6,10
-
-      File.foreach( file_path ) do |word|
-        word = word.chop.to_s.downcase
+      dict = dict.map(&:downcase)
+      dictionary = []
+      dict.each do |word|
         dictionary <<  word if [3,4,5,6,7,10].include?(word.length)
       end
-
       # get all letters for numbers in form of array
       
       keys = phone_no.split('').map{|digit| dw_map[digit]}.flatten
@@ -45,6 +46,7 @@ module D2W
       possible_words.each do |word|
         exact_words << word if D2W::WordInNumber.new.word_in_number?(phone_no, word, dw_map)
       end
+
       p possible_pair = D2W::FilterWordLengthWise.new.filter_word_length_wise(exact_words, phone_no, dw_map)
     end
   end          

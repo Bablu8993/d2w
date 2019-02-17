@@ -4,6 +4,7 @@ require_relative "d2w/word_in_number"
 require_relative "d2w/filter_word_length_wise"
 require_relative "d2w/word_collection"
 require_relative "d2w/cli"
+require "d2w/dictionary.rb"
 module D2W
   # class Error < StandardError
   # end

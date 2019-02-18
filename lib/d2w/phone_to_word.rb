@@ -2,32 +2,14 @@ module D2W
   # require 'thor'
   class PhoneToWord 
     def digit2word(phone_no)
-
        # path_of_dictionary = "/Users/babaloo/Downloads/dictionary.txt"
-       
-       if phone_no.nil? || phone_no.length != 10 || phone_no.split('').select{|a|(a.to_i == 0 || a.to_i == 1)}.length > 0
-        return []
-       end
-      dw_map =  {  
-                  "2" => ["a", "b", "c"],
-                  "3" => ["d", "e", "f"],
-                  "4" => ["g", "h", "i"],
-                  "5" => ["j", "k", "l"],
-                  "6" => ["m", "n", "o"],
-                  "7" => ["p", "q", "r", "s"],
-                  "8" => ["t", "u", "v"],
-                  "9" => ["w", "x", "y", "z"]
-                }
-    
+      dw_map =  {  "2" => ["a", "b", "c"],"3" => ["d", "e", "f"],"4" => ["g", "h", "i"], "5" => ["j", "k", "l"], "6" => ["m", "n", "o"], "7" => ["p", "q", "r", "s"],"8" => ["t", "u", "v"], "9" => ["w", "x", "y", "z"]}
       #this is path of given dictionary in my local machine
-      dict = D2W::Dictionary.new.dictionary
-      
-      #fetching dictionay in my local dictionary array with leght 3,5,7,4,6,10
-      dict = dict.map(&:downcase)
       dictionary = []
-      dict.each do |word|
+      D2W::Dictionary.new.dictionary.map(&:downcase).each do |word|
         dictionary <<  word if [3,4,5,6,7,10].include?(word.length)
       end
+
       # get all letters for numbers in form of array
       
       keys = phone_no.split('').map{|digit| dw_map[digit]}.flatten
@@ -37,9 +19,7 @@ module D2W
       # filter words which is possible for given phone number
 
       dictionary.each do |word|
-        if (word.split("") - keys).empty?
-          possible_words << word
-        end
+        possible_words << word if (word.split("") - keys).empty?
       end
       exact_words = []
       # filer exact words for phone number from possible words

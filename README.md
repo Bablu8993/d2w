@@ -24,9 +24,8 @@ Or install it yourself as:
 clone the gem into your local machin and go to that folder
 on terminal run the following command with mobile_number
 
-        path_of_dictionar = "/Users/babaloo/Downloads/dictionary.txt" (Example path)
         
-        d2w translate 2282668687 path_of_dictionar
+        d2w translate 2282668687
         
         2282668687 is phone no.
         
@@ -41,14 +40,14 @@ Output for 6686787825
 ## Benchmark
    Runnig Benchmark for phone_no 2282668687
    
-    Benchmark.measure{D2W::PhoneToWord.new.digit2word("2282668687","/Users/babaloo/Downloads/dictionary.txt")}
+    Benchmark.measure{D2W::PhoneToWord.new.digit2word("2282668687")}
  Got Details
     
     #<Benchmark::Tms:0x00007f8051c38538 @label="", @real=1.1990008849970764, @cstime=0.0, @cutime=0.0, @stime=0.010602, @utime=1.172868, @total=1.18347>
     
  Runnig Benchmark for phone_no 2282668687   
  
-    Benchmark.measure{D2W::PhoneToWord.new.digit2word("6686787825","/Users/babaloo/Downloads/dictionary.txt")}
+    Benchmark.measure{D2W::PhoneToWord.new.digit2word("6686787825")}
     
  Got Details
  

@@ -27,6 +27,10 @@ on terminal run the following command with mobile_number
         
         d2w translate 2282668687
         
+Another way is run this on terminal after cloning 
+   
+        D2W::PhoneToWord.new.digit2word(2282668687)    
+        
         2282668687 is phone no.
         
  Output for 2282668687
@@ -36,6 +40,7 @@ on terminal run the following command with mobile_number
 Output for 6686787825
 
     [["mot", "opt", "puck"], ["mot", "opt", "ruck"], ["mot", "opt", "suck"], ["mot", "ort", "puck"], ["mot", "ort", "ruck"], ["mot", "ort", "suck"], ["not", "opt", "puck"], ["not", "opt", "ruck"], ["not", "opt", "suck"], ["not", "ort", "puck"], ["not", "ort", "ruck"], ["not", "ort", "suck"], ["oot", "opt", "puck"], ["oot", "opt", "ruck"], ["oot", "opt", "suck"], ["oot", "ort", "puck"], ["oot", "ort", "ruck"], ["oot", "ort", "suck"], ["noun", "struck"], ["onto", "struck"], ["motor", "truck"], ["motor", "usual"], ["nouns", "truck"], ["nouns", "usual"], ["motortruck"]]
+        
 
 ## Benchmark
    Runnig Benchmark for phone_no 2282668687

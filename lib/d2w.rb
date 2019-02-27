@@ -5,6 +5,7 @@ require_relative "d2w/filter_word_length_wise"
 require_relative "d2w/word_collection"
 require_relative "d2w/cli"
 require "d2w/dictionary.rb"
+require "d2w/grouping_word"
 module D2W
   # class Error < StandardError
   # end
